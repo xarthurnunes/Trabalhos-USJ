@@ -22,6 +22,7 @@
         <button onclick="subtrair()">Substrair(-)</button>
         <button onclick="multiplicar()">Multiplicar(x)</button>
         <button onclick="dividir()">Dividir(/)</button>
+        <button onclick="percentual()">Percentual(%)</button>
     </div>
     <div>
         <label for="resultado">Resultado</label>
@@ -52,6 +53,12 @@
             var num2 = +document.getElementById('num2').value;
             var resultado = document.getElementById('resultado');
             resultado.value = num1 / num2;
+        }
+        function percentual() {
+            var num1 = +document.getElementById('num1').value;
+            var num2 = +document.getElementById('num2').value;
+            var resultado = document.getElementById('resultado');
+            resultado.value = num1 * (num2/100);
         }
     </script>
 
