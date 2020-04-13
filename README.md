@@ -2,4 +2,4 @@
 Esse repositório é para fins acadêmicos
 Todos os códigos postados aqui são feitos no curso realizado na Universidade Municipal de São José no meu periodo letivo.
 
-Contato arthurn.catarina@gmail.com
+Contato arthur.catarina@aluno.usj.edu.br
