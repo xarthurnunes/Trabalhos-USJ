@@ -1,0 +1,34 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-DemoApplication<hello-world>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "br.edu.usj.lpii.helloworld.DemoApplication",
+            "projectName": "hello-world",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-HelloWorldHtmlApplication<helloworldhtml>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "br.edu.usj.lpii.helloworldhtml.helloworldhtml.HelloWorldHtmlApplication",
+            "projectName": "helloworldhtml",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-HelloNameApplication<helloname>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "br.edu.usj.lpii.helloname.helloname.HelloNameApplication",
+            "projectName": "helloname",
+            "args": ""
+        }
+    ]
+}
