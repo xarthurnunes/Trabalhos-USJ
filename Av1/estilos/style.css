@@ -1,0 +1,58 @@
+body { 
+    background-color: #a9a9a9;
+}
+
+p.paragrafo1 { 
+    text-align: left; color: #ffffff; font-size: 25pt;
+}
+
+h1 {
+    text-align: center; color: #ffffff;
+}
+
+div { 
+    text-align: center;
+}
+
+fieldset {
+    text-align: center; margin: auto; width: 300pt; height: 300pt;
+}
+
+legend {
+    text-align: center; font-size: 25pt;
+}
+
+button {
+    padding: 20px;
+}
+
+#resultado {
+    text-align: center;
+    font-size: 20pt;
+    font-weight: bold;
+}
+
+#nome {
+    margin-left: 1pt;
+}
+#idade {
+    margin-left: 5pt;
+}
+#email {
+    margin-right: 2pt;
+}
+#senha {
+    margin-left: 2pt;
+}
+
+p.acerto {
+    text-align: center; 
+    font-size: 14pt;
+    background-color: #006400;
+
+}
+p.erro {
+    text-align: center; 
+    font-size: 14pt;
+    background-color: #ff0000;  
+}

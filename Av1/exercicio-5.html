@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="estilos/style.css" />
+    <title>Exercicio 5</title>
+</head>
+
+<body>
+    <h1>Formulário para Cadastro no Sistema</h1>
+    <fieldset>
+        <legend>Digite os dados para cadastro</legend>
+        <form name="cadastroCliente" method="POST">
+            <div>
+                <label for="nome">Digite o Nome:
+                    <input type="text" id="nome" name="nome" placeholder="Digite o Nome" />
+            </div>
+            <div>
+                <label for="idade">Digite a Idade:
+                    <input type="number" id="idade" name="idade" placeholder="Digite a Idade" />
+            </div>
+            <div>
+                <label for="email">Digite o E-mail:
+                    <input type="email" id="email" name="email" placeholder="Digite o E-mail" />
+            </div>
+            <div>
+                <label for="senha">Digite a Senha:
+                    <input type="password" id="senha" name="senha" placeholder="Digite a Senha" />
+            </div>
+            <div><input type="button" value="Cadastrar" onclick="return validar()" />
+            </div>
+            <div id="acerto" style="visibility:hidden"><p class="acerto">Cadastro Inserido com Sucesso</p>
+            </div>
+            <div id="erro" style="visibility:hidden"><p class="erro">Reveja os dados inseridos</p>
+            </div>
+        </form>
+        <script>
+            function acerto() {
+                document.getElementById('acerto').style.visibility = "visible";
+            }
+
+            function erro() {
+                document.getElementById('erro').style.visibility = "visible";
+            }
+
+            function validar() {
+                var nome = document.getElementById("nome").value;
+                var idade = +document.getElementById("idade").value;
+                var email = document.getElementById("email").value;
+                var senha = document.getElementById("senha").value;
+
+                //validar nome
+                if (nome == '' || nome >=0 && nome<=9999999999999999999999999999999){
+                    cadastroCliente.nome.focus();
+                    document.getElementById('acerto').style.visibility = "hidden";
+                    return erro();
+                }
+                if (nome == ' ' || nome >='a' && nome <='z' || nome >='A' && nome <='Z') {
+                    //tudo ok
+                }
+                //validar email
+                if (email == "" || email.indexOf('@') == -1 ) {
+                    cadastroCliente.email.focus();
+                    document.getElementById('acerto').style.visibility = "hidden";
+                    return erro();
+                }
+                //validar senha
+                if (senha == '' || senha.length <= 7) {
+                    cadastroCliente.senha.focus();
+                    document.getElementById('acerto').style.visibility = "hidden";
+                    return erro();
+                }
+
+                document.getElementById('erro').style.visibility = 'hidden';
+                return acerto();
+            }
+        </script>
+
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="estilos/style.css" />
+    <title>Exercicio 4</title>
+</head>
+<body>
+    <h1>Digite a Tarefa que deseja por na lista</h1>
+    <fieldset>
+        <legend>Tarefas</legend>
+        <div>
+            <input type="text" name="atividade" id="tarefa" placeholder="Digite a tarefa" >
+        </div>
+        <input type="button" id="adicionar" value="Adicionar" onclick="addtarefa()">
+    <ul id="listatarefa"></ul>
+    <div id="tarefas"></div>
+    </div>
+    </fieldset>
+    <script>
+        function addtarefa() {
+            var vazio = document.getElementById("tarefa");
+            var tarefa = document.getElementById("tarefa").value;
+            var novaLinha = document.createElement("li");
+            var textoAuxiliar = document.createTextNode(tarefa);
+            novaLinha.appendChild(textoAuxiliar);
+            document.getElementById("tarefas").appendChild(novaLinha);
+            vazio.value = null;
+        }
+    </script>
+</body>
+</html>
