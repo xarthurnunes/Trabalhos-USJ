@@ -45,14 +45,17 @@ button {
     margin-left: 2pt;
 }
 
-p.acerto {
+.acerto {
     text-align: center; 
     font-size: 14pt;
     background-color: #006400;
 
 }
-p.erro {
+.erro {
     text-align: center; 
     font-size: 14pt;
     background-color: #ff0000;  
+}
+.erroborda {
+    border: 2px solid #ff0000;    
 }

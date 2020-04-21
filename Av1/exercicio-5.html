@@ -31,56 +31,80 @@
             </div>
             <div><input type="button" value="Cadastrar" onclick="return validar()" />
             </div>
-            <div id="acerto" style="visibility:hidden"><p class="acerto">Cadastro Inserido com Sucesso</p>
+            <div id="acerto" style="visibility:hidden">
+                <p class="acerto">Cadastro Inserido com Sucesso</p>
             </div>
-            <div id="erro" style="visibility:hidden"><p class="erro">Reveja os dados inseridos</p>
+            <div id="erro" style="visibility:hidden" class="erro">
             </div>
         </form>
-        </fieldset>
-        <div>
-            <button onclick="history.go(-1)">Voltar</button>
-        </div>
-        <script>
-            function acerto() {
-                document.getElementById('acerto').style.visibility = "visible";
+    </fieldset>
+    <div>
+        <button onclick="history.go(-1)">Voltar</button>
+    </div>
+    <script>
+        function acerto() {
+            document.getElementById('acerto').style.visibility = "visible";
+        }
+
+        function erro(campo) {
+            document.getElementById('erro').style.visibility = "visible";
+            document.getElementById('erro').innerHTML = "O campo " + campo + " está inválido";
+        }
+
+        function validar() {
+            var nome = document.getElementById("nome").value;
+            var idade = +document.getElementById("idade").value;
+            var email = document.getElementById("email").value;
+            var senha = document.getElementById("senha").value;
+
+            //zerar className
+            document.getElementById("nome").className = '';
+            document.getElementById("idade").className = '';
+            document.getElementById("email").className = '';
+            document.getElementById("senha").className = '';
+
+            //validar nome
+            var caractere = "0";
+            for (let c = 0; c < nome.length; c++) {
+                if (nome[1, c] >= '0' && nome[1, c] <= 9 || nome[1, c] == '') {
+                    document.getElementById("nome").focus();
+                    document.getElementById("nome").className = 'erroborda';
+                    document.getElementById('acerto').style.visibility = "hidden";
+                    erro('nome');
+                    return;
+                } 
             }
 
-            function erro() {
-                document.getElementById('erro').style.visibility = "visible";
+            //validar idade
+            if (idade == '') {
+                document.getElementById("idade").focus();
+                document.getElementById("idade").className = 'erroborda';
+                erro('idade');
+                return;
             }
 
-            function validar() {
-                var nome = document.getElementById("nome").value;
-                var idade = +document.getElementById("idade").value;
-                var email = document.getElementById("email").value;
-                var senha = document.getElementById("senha").value;
-
-                //validar nome
-                if (nome == '' || nome >=0 && nome<=9999999999999999999999999999999){
-                    cadastroCliente.nome.focus();
-                    document.getElementById('acerto').style.visibility = "hidden";
-                    return erro();
-                }
-                if (nome == ' ' || nome >='a' && nome <='z' || nome >='A' && nome <='Z') {
-                    //tudo ok
-                }
-                //validar email
-                if (email == "" || email.indexOf('@') == -1 ) {
-                    cadastroCliente.email.focus();
-                    document.getElementById('acerto').style.visibility = "hidden";
-                    return erro();
-                }
-                //validar senha
-                if (senha == '' || senha.length <= 7) {
-                    cadastroCliente.senha.focus();
-                    document.getElementById('acerto').style.visibility = "hidden";
-                    return erro();
-                }
-
-                document.getElementById('erro').style.visibility = 'hidden';
-                return acerto();
+            //validar email
+            if (email == "" || email.indexOf('@') == -1) {
+                document.getElementById("email").focus();
+                document.getElementById("email").className = 'erroborda';
+                document.getElementById('acerto').style.visibility = "hidden";
+                erro('email');
+                return;
             }
-        </script>
+
+            //validar senha
+            if (senha == '' || senha.length <= 7) {
+                document.getElementById("senha").focus();
+                document.getElementById("senha").className = 'erroborda';
+                document.getElementById('acerto').style.visibility = "hidden";
+                erro('senha');
+                return;
+            }
+
+            document.getElementById('erro').style.visibility = 'hidden';
+            return acerto();
+        }
+    </script>
 
 </body>
 
