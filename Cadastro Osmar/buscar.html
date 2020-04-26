@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <title>Busca de Cadastros</title>
+</head>
+<body>
+    <h1>Buscar Cadastro</h1>
+    <fieldset>
+        <legend>Digite o nome para buscar</legend>
+        <form name="buscacad" method="POST">
+            <div>
+                <label for="nome">Nome:
+                    <input type="text" id="nome" name="nome" placeholder="Ex: João da Silva" />
+            </div>
+    <div>
+        <input type="button" id="buscar" value="Buscar" onclick="buscarcad()" />
+    </div>
+</body>
+</html>
