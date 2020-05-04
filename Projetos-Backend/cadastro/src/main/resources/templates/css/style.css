@@ -1,0 +1,81 @@
+body {
+    background-color: darkgrey;
+}
+h1 {
+    text-align: center;
+    color: beige;
+}
+fieldset {
+    text-align: center; 
+    margin: auto; 
+    width: 300pt; 
+    height: 300pt;
+}
+
+legend {
+    text-align: center; 
+    font-size: 25pt;
+}
+div {
+    text-align: center;
+}
+#cadastrar {
+    border: 0px;
+    border-radius: 10px;
+    padding: 15px;
+    font-weight: bold;
+    background-color: green;
+    margin-bottom: 5pt;
+    margin-top: 15pt;
+    margin-right: 10pt;
+    text-align: center;
+    outline: none;  
+}
+#limpar {
+    border: 0px;
+    border-radius: 10px;
+    padding: 15px;
+    font-weight: bold;
+    background-color: green;
+    margin-bottom: 5pt;
+    margin-top: 15pt;
+    margin-right: 10pt;
+    text-align: center;
+    outline: none;  
+}
+
+.erroborda {
+    border: 2px solid red;    
+}
+#nome{
+    margin-left: 50pt;
+    width: 200pt;
+}
+#cpf{
+    margin-left: 58pt;
+    width: 199pt;
+}
+#endereco{
+    margin-left: 34pt;
+    width: 199pt;
+}
+#complemento{
+    margin-left: 11pt;
+    width: 199pt;
+}
+#datanasc{
+    margin-left: 22pt;
+    width: 199pt;
+}
+#senha{
+    margin-left: 50pt;
+    width: 200pt;
+}
+#confSenha{
+    margin-left: 23pt;
+    width: 200pt;
+}
+#email{
+    margin-left: 46.5pt;
+    width: 199pt;
+}

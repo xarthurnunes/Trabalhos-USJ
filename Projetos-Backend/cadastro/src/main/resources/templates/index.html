@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <title>Cadastro de Usuarios</title>
+</head>
+<body>
+    <h1>Formulário para Cadastro no Sistema</h1>
+    <fieldset>
+        <legend>Digite os dados para cadastro</legend>
+        <form action="/cadastrar" method="POST">
+            <div>
+                <label for="nome">Nome:
+                    <input type="text" id="nome" name="nome" placeholder="Ex: João da Silva" />
+            </div>
+            <div>
+                <label for="cpf">CPF:
+                    <input type="text" id="cpf" name="cpf" placeholder="Ex: 000.000.000-00" />
+            </div>
+            <div>
+                <label for="endereco">Endereço:
+                    <input type="text" id="endereco" name="endereco" placeholder="Ex: Rua Teste, 123" />
+            </div>
+            <div>
+                <label for="complemento">Complemento:
+                    <input type="text" id="complemento" name="complemento" placeholder="Ex: Apto/Bloco" />
+            </div>
+            <div>
+                <label for="datanasc">Nascimento:
+                    <input type="text" id="datanasc" name="datanasc" placeholder="Ex: 01/01/1900" />
+            </div>
+            <div>
+                <label for="senha">Senha:
+                    <input type="password" id="senha" name="senha" placeholder="Digite aqui sua senha" />
+            </div>
+            <div>
+                <label for="confSenha">Conf Senha:
+                    <input type="password" id="confSenha" name="confSenha" placeholder="Confirme sua senha" />
+            </div>
+            <div>
+                <label for="email">E-mail:
+                    <input type="email" id="email" name="email" placeholder="Ex: voce@exemplo.com" />
+            </div>
+            <p>
+                <div>
+                    <input type="submit" value="Cadastrar" />
+                </div>
+        </form>
+    </fieldset>
+    <div th:text="${mensagem}"></div>
+    
+</body>
+</html>
