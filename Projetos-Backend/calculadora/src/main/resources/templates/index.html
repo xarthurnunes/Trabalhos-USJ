@@ -18,6 +18,10 @@
         <input type="submit" value="Calcular" />
     </form>
     <div th:text="${mensagem}"></div>
-    
+
+
+    <ul>
+        <li th:each="operacao : ${historico}" th:text="${operacao}"></li>
+    </ul>
 </body>
 </html>
