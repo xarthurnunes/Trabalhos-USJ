@@ -1,0 +1,45 @@
+body {
+    background-color: darkgrey;
+}
+h1 {
+    text-align: center;
+    color: beige;
+}
+fieldset {
+    text-align: center; 
+    margin: auto; 
+    width: 300pt; 
+    height: 150pt;
+}
+
+legend {
+    text-align: center; 
+    font-size: 25pt;
+}
+div {
+    text-align: center;
+}
+#cadastrar {
+    border: 0px;
+    border-radius: 10px;
+    padding: 15px;
+    font-weight: bold;
+    background-color: green;
+    margin-bottom: 5pt;
+    margin-top: 15pt;
+    margin-right: 10pt;
+    text-align: center;
+    outline: none;  
+}
+#nome{
+    margin-left: 50pt;
+    width: 200pt;
+}
+#email{
+    margin-left: 46.5pt;
+    width: 199pt;
+}
+#telefone{
+    margin-left: 38pt;
+    width: 200pt;
+}

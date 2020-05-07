@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <title>Cadastro de Contatos</title>
+</head>
+<body>
+    <h1>Formulário para Cadastro de Contato</h1>
+    <fieldset>
+        <legend>Digite os dados para cadastro</legend>
+        <form action="/cadastrar-contato" method="POST">
+            <div>
+                <label for="nome">Nome:
+                    <input type="text" id="nome" name="nome" placeholder="Ex: João da Silva" />
+            </div>
+            <div>
+                <label for="email">E-mail:
+                    <input type="email" id="email" name="email" placeholder="voce@exemplo.com" />
+            </div>
+            <div>
+                <label for="telefone">Telefone:
+                    <input type="text" id="telefone" name="telefone" placeholder="(xx) xxxxx-xxxx" />
+            </div>
+            <p>
+                <div>
+                    <input type="submit" value="Cadastrar" />
+                </div>
+        </form>
+    </fieldset>
+    <div th:text="${mensagem}"></div>
+    
+    
+    <ul>
+        <li th:each="contato : ${historico}" th:text="${contato}"></li>
+    </ul>
+</body>
+</html>
