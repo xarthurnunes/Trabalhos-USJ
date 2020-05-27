@@ -15,7 +15,7 @@ public class Cadastro {
             @RequestParam String datanasc, @RequestParam String senha,
             @RequestParam String confSenha, @RequestParam String email) {
 
-        final ModelAndView modelAndView = new ModelAndView("index");
+        ModelAndView modelAndView = new ModelAndView("index");
         String texto;
         String nomeUsuario = nome;
         String cpfUsuario = cpf;
