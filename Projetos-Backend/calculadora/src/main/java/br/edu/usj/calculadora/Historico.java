@@ -3,15 +3,16 @@ package br.edu.usj.calculadora;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Historico {
 
-    List<String> listaOperacoes = new ArrayList<>();
+    List<Operacao> listaOperacoes = new ArrayList<>();
 
-    void adicionar(String operacao) {
+    void adicionar(Operacao operacao) {
         listaOperacoes.add(operacao);
     }
 
-    List<String> lerOperacao() {
+    List<Operacao> lerOperacao() {
         return listaOperacoes;
     }
     

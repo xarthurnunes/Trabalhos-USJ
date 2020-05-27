@@ -21,7 +21,7 @@
 
 
     <ul>
-        <li th:each="operacao : ${historico}" th:text="${operacao}"></li>
+        <li th:each="item : ${historico}" th:text="${item.operacao}"></li>
     </ul>
 </body>
 </html>
