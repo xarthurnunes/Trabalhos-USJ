@@ -1,5 +1,6 @@
 package br.edu.usj.contatos;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,8 +20,15 @@ public class Contatos {
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
 
+    @Column(name = "nome")
+    String nome;
+    @Column(name = "telefone")
+    String telefone;
+    @Column(name = "email")
+    String email;
 
-    String contato;
+
+    
 
     
 }

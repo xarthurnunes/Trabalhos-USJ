@@ -15,20 +15,21 @@ public class Contato {
 
     @PostMapping(value="/cadastrar-contato")
     public ModelAndView postContato(@RequestParam String nome, @RequestParam String email, @RequestParam String telefone) {
-        String contatoString;
         String mensagem;
         ModelAndView modelAndView = new ModelAndView("index");
         String nomeContato = nome;
         String emailContato = email;
         String telefoneContato = telefone;
 
-        contatoString = "Nome: "+ nomeContato+" /Email:" +emailContato+" /Telefone:" + telefoneContato;
+        
 
         Contatos contato = new Contatos();
 
         mensagem = "O contato "+nomeContato +" foi cadastrado com sucesso!!!";
         
-        contato.setContato(contatoString);
+        contato.setNome(nomeContato);
+        contato.setTelefone(telefoneContato);
+        contato.setEmail(emailContato);
 
         contatoRepository.save(contato);
 
