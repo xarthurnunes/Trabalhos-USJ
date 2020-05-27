@@ -33,7 +33,7 @@
     
     
     <ul>
-        <li th:each="contatos : ${historico}" th:text="${contatos.nome}"></li>
+        <li th:each="contatos : ${historico}" th:text="Nome: ${contatos.nome} Telefone: ${contatos.telefone} Email: ${contatos.email}"></li>
     </ul>
 </body>
 </html>
