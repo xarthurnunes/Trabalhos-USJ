@@ -9,7 +9,7 @@ fieldset {
     text-align: center; 
     margin: auto; 
     width: 300pt; 
-    height: 150pt;
+    height: auto;
 }
 
 legend {

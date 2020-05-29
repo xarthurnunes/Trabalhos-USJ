@@ -16,7 +16,7 @@
     <fieldset>
         <legend>Resultados da busca</legend>
     <ul>
-        <li th:each="contatos : ${buscar}" th:text="${'Nome: ' + contatos.nome + ' Telefone:' + contatos.telefone + ' E-mail:' + contatos.email}"></li>
+        <li th:each="contatos : ${buscar}"><p th:text="${'Nome: ' + contatos.nome }"><br/><p th:text="${'Telefone:' + contatos.telefone}"><br/><p th:text="${'E-mail:' + contatos.email}"></li>
     </ul>
     <p>
         <button onclick="voltar()">Voltar</button>
