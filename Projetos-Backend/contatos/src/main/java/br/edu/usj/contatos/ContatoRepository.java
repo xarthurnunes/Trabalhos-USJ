@@ -7,5 +7,6 @@ import org.springframework.data.repository.CrudRepository;
 public interface ContatoRepository extends CrudRepository<Contatos, Long>{
 
     List<Contatos> findAll();
+    List<Contatos> findByNome(String nome);
     
 }

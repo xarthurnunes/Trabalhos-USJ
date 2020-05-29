@@ -34,8 +34,7 @@ public class Contato {
         contatoRepository.save(contato);
 
         modelAndView.addObject("mensagem", mensagem);
-        modelAndView.addObject("historico", contatoRepository.findAll());
-     
+            
         
         return modelAndView;
     }
