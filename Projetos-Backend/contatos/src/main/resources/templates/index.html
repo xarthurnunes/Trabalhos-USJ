@@ -44,10 +44,6 @@
         </form>
     </fieldset>
     <div th:text="${mensagem}"></div>
-    
-    
-    <ul>
-        <li th:each="contatos : ${buscar}" th:text="${contatos.nome + ! + contatos.telefone + ! + contatos.email}"></li>
-    </ul>
+
 </body>
 </html>

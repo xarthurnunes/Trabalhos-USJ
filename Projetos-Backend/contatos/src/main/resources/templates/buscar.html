@@ -6,23 +6,21 @@
     <link type="text/css" rel="stylesheet" href="css/style.css" />
     <title>Busca de Contatos</title>
 </head>
+<script>
+    function voltar() {
+      window.history.back();
+    }
+</script>
 <body>
     <h1>Busca de Contatos</h1>
     <fieldset>
-        <legend>Digite o nome para buscar</legend>
-        <form action="/buscar-contato" method="POST">
-            <div>
-                <label for="nome">Nome:
-                    <input type="text" id="nome" name="nome" placeholder="Ex: João da Silva" />
-            </div>
-            <p>
-                <div>
-                    <input type="submit" value="Buscar" />
-                </div>
-        </form>
-    </fieldset>
+        <legend>Resultados da busca</legend>
     <ul>
-        <li th:each="contatos : ${historico}" th:text="${contatos.nome} + ${contatos.telefone} + ${contatos.email}"></li>
+        <li th:each="contatos : ${buscar}" th:text="${'Nome: ' + contatos.nome + ' Telefone:' + contatos.telefone + ' E-mail:' + contatos.email}"></li>
     </ul>
+    <p>
+        <button onclick="voltar()">Voltar</button>
+    </fieldset>
+    
 </body>
 </html>
