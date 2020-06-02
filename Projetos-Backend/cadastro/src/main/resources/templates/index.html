@@ -49,6 +49,20 @@
                 </div>
         </form>
     </fieldset>
+    <p>
+        <fieldset>
+        <Legend>Digite o nome para buscar</Legend>
+            <form action="/busca" method="POST">
+                <div>
+                    <label for="nome">Nome:
+                        <input type="text" id="nome" name="nome" placeholder="Ex: João da Silva" />
+                </div>
+                <p>
+                <div>
+                    <input type="submit" value="Buscar" />
+                </div>
+        </form>
+    </fieldset>
     <div th:text="${mensagem}"></div>
     
 </body>
