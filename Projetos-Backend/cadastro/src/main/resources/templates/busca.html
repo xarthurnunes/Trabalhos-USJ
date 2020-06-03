@@ -1,28 +1,46 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
     <title>Busca de Cadastros</title>
 </head>
 <script>
     function voltar() {
-      window.history.back();
+        window.history.back();
     }
 </script>
-<body>
-    <h1>Busca de Cadastros</h1>
-    <fieldset>
-        <legend>Resultados da busca</legend>
-    <ul>
-        <li th:each="cadastro : ${busca}"><p th:text="${'Nome: ' + cadastro.nome }"><br/><p th:text="${'CPF:' + cadastro.cpf}"><br/><p th:text="${'Endereço:' + cadastro.endereco}">
-            <br/><p th:text="${'Complemento:' + cadastro.complemento}"><br/><p th:text="${'Aniversario:' + cadastro.datanasc}"><br/><p th:text="${'Email:' + cadastro.email}">
-        </li>
-    </ul>
+
+<body class="text-white bg-dark">
+    <h1 class="text-center">Resultados da busca</h1>
     <p>
-        <button onclick="voltar()">Voltar</button>
-    </fieldset>
-    
+    <div class="d-flex">
+        <div th:each="cadastro: ${busca}" class="list-inline mx-auto justify-content-center">
+            <div class="list-inline">
+                Id: <span th:text="${cadastro.id }"></span><br />
+                Nome: <span th:text="${cadastro.nome}"></span><br />
+                CPF: <span th:text="${cadastro.cpf}"></span><br />
+                Endereço: <span th:text="${cadastro.endereco}"></span><br />
+                Complemento: <span th:text="${cadastro.complemento}"></span><br />
+                Aniversário: <span th:text="${cadastro.datanasc}"></span><br />
+                E-mail: <span th:text="${cadastro.email}"></span><br />
+                <div class="col text-center mx-auto">
+                <a th:href="@{/deleta/{id}(id=${cadastro.id})}" class="btn btn-danger">Apagar Cadastro</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p>
+    <div class="form-group row mx-auto">
+        <div class="col text-center mx-auto">
+            <button class="btn btn-warning" onclick="voltar()">Voltar</button>
+        </div>
+    </div>
+    <script src="/js/jquery-3.4.1.slim.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
 </body>
+
 </html>
