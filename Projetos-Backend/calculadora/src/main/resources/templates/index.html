@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
     <title>Calculadora</title>
 </head>
 <body>
@@ -20,8 +21,25 @@
     <div th:text="${mensagem}"></div>
 
 
-    <ul>
-        <li th:each="item : ${historico}" th:text="${item.operacao}"></li>
-    </ul>
+    <div>
+        <div th:each="item : ${historico}" class= "row m-1">
+            <div class="col-3">
+            Id-<span th:text="${item.id}"></span> 
+            </div>
+            <div class="col-5">
+            Operação: <span th:text="${item.operacao}"></span> 
+            </div>
+            <div class="col-2">
+            <a th:href="@{/deleta/{id}(id=${item.id})}" class="btn btn-danger">Apagar</a>
+            </div>
+            <div class="col-2">
+            <a th:href="@{/mostra/{id}(id=${item.id})}" class="btn btn-primary">Mostrar</a>
+            </div>
+        </div>
+    </div>
+    <script src="/js/jquery-3.4.1.slim.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+
 </body>
 </html>
