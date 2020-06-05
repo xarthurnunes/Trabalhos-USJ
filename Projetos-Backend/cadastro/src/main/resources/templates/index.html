@@ -72,7 +72,7 @@
             </div>
         </div>
     </form>
-    <div class="text-center" th:text="${mensagem}"></div>
+    <div class="alert alert-success text-center" th:if="${mensagem}" th:text="${mensagem}"></div>
     <p>
     <h3 class="text-center">Digite o nome para buscar</h3>
     <form action="/busca" method="POST">
