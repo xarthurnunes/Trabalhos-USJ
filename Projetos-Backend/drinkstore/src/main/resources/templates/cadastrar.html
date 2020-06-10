@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <title>Drink Store</title>
+</head>
+
+<body class="bg-dark">
+    <div class="container">
+        <h1>Drink Store - Loja de Bebidas</h1>
+        <h2>Cadastro</h2>
+
+
+        <form method="POST" action="/cadastrar">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input class="form-control" type="text" name="nome" id="nome" th:value="${bebida.nome}" placeholder="Ex: Brahma zero Lata" />
+            </div>
+            <div class="form-group">
+                <label for="descricao">Descrição:</label>
+                <input class="form-control" type="text" name="descricao" id="descricao" th:value="${bebida.descricao}" placeholder="Ex: Brahma zero lata 300ml" />
+            </div>
+            <div class="form-group">
+                <label for="fabricante">Fabricante:</label>
+                <input class="form-control" type="text" name="fabricante" id="fabricante" th:value="${bebida.fabricante}" placeholder="Ex: AMBEV" />
+            </div>
+            <div class="form-group">
+                <label for="teor">Teor Alcoólico:</label>
+                <input class="form-control" type="text" name="teor" id="teor" th:value="${bebida.teor}" placeholder="Ex: Para 15% de Teor alcólico digite apenas 15" />
+            </div>
+            <div class="form-group">
+                <label for="preco">Preço:</label>
+                <input class="form-control" type="text" name="preco" id="preco" th:value="${bebida.preco}" placeholder="Ex: 2.50" />
+            </div>
+
+            <input type="hidden" name="id" th:value="${bebida.id}" />
+
+            <input class="btn btn-primary" type="submit" value="Enviar" />
+        </form>
+        <a href="/">Voltar</a>
+    </div>
+
+
+
+
+
+
+
+
+
+    <script src="/js/jquery-3.4.1.slim.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</body>
+
+</html>
