@@ -48,20 +48,16 @@ public class BebidaController {
     @PostMapping(value="/cadastrar")
     public ModelAndView postCadastrar(Bebida bebida) {
         //recebe a bebida preenchida no formulário e grava no banco
-        bebidaRepository.save(bebida);
-        ModelAndView modelAndView = new ModelAndView("mostrar");
-        modelAndView.addObject("bebida", bebida);
-        return modelAndView;
+        Bebida bebidaSalva = bebidaRepository.save(bebida);
+
+        return getMostrar(bebidaSalva.getId());
     }
 
     @GetMapping(value="/deletar/{id}")
-    public ModelAndView getDeletar(@PathVariable Long id) {
+    public String getDeletar(@PathVariable Long id) {
         // deleta a bebida referente ao id
         bebidaRepository.deleteById(id);
-        List<Bebida> lista = bebidaRepository.findAll();
-        ModelAndView modelAndView = new ModelAndView("index");
-        modelAndView.addObject("lista", lista);
-        return modelAndView;
+        return "redirect:/";
     }
 
     @GetMapping(value="/editar/{id}")
