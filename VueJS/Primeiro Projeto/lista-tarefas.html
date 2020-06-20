@@ -12,7 +12,7 @@
         <h1>Lista de Tarefas</h1>
         <input type="text" id="tarefa" v-model="tarefa" placeholder="Digite a tarefa a ser adicionada"/>
         <button class="btn btn-primary" v-on:click="adicionarTarefa()">Adicionar</button>
-        <ul>
+        <ul v-if="lista.lenght() > 0">
             <li v-for="item in lista">{{item}}</li>           
         </ul>
 
