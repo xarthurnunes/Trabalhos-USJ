@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
@@ -25,32 +24,27 @@ public class BebidaController {
         return lista;
     }
 
-    @GetMapping(value="/mostrar/{id}")
-    public ModelAndView getMostrar(@PathVariable Long id) {
+    @GetMapping(value="/{id}")
+    public Bebida getMostrar(@PathVariable Long id) {
         //listar a bebida referente ao id
         Bebida bebida = bebidaRepository.findById(id).get();
-
-        ModelAndView modelAndView = new ModelAndView("mostrar");
-        modelAndView.addObject("bebida", bebida);
-
-        return modelAndView;
+        return bebida;
     }
 
-    @GetMapping(value="/cadastrar")
-    public ModelAndView getCadastrar() {
+    //@GetMapping(value="/cadastrar")
+    //public ModelAndView getCadastrar() {
         //retorna o formulário para o usuário para preencher
-        Bebida bebida = new Bebida();
-        ModelAndView modelAndView = new ModelAndView("cadastrar");
-        modelAndView.addObject("bebida", bebida);
-        return modelAndView;
-    }
+    //    Bebida bebida = new Bebida();
+    //    ModelAndView modelAndView = new ModelAndView("cadastrar");
+    //   modelAndView.addObject("bebida", bebida);
+    //    return modelAndView;
+    //}
     
     @PostMapping(value="/cadastrar")
-    public ModelAndView postCadastrar(Bebida bebida) {
+    public Bebida postCadastrar(Bebida bebida) {
         //recebe a bebida preenchida no formulário e grava no banco
         Bebida bebidaSalva = bebidaRepository.save(bebida);
-
-        return getMostrar(bebidaSalva.getId());
+        return bebidaSalva;
     }
 
     @GetMapping(value="/deletar/{id}")
@@ -61,13 +55,10 @@ public class BebidaController {
     }
 
     @GetMapping(value="/editar/{id}")
-    public ModelAndView getEditar(@PathVariable Long id) {
+    public Bebida getEditar(@PathVariable Long id) {
         // retornar o formulário de cadastro com a a bebida "id" preenchida no form
         Bebida bebida = bebidaRepository.findById(id).get();
-
-        ModelAndView modelAndView = new ModelAndView("cadastrar");
-        modelAndView.addObject("bebida", bebida);
-        return modelAndView;
+        return bebida;
     }
     
     
