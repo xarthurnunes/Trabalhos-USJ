@@ -31,15 +31,6 @@ public class BebidaController {
         return bebida;
     }
 
-    //@GetMapping(value="/cadastrar")
-    //public ModelAndView getCadastrar() {
-        //retorna o formulário para o usuário para preencher
-    //    Bebida bebida = new Bebida();
-    //    ModelAndView modelAndView = new ModelAndView("cadastrar");
-    //   modelAndView.addObject("bebida", bebida);
-    //    return modelAndView;
-    //}
-    
     @PostMapping(value="/cadastrar")
     public Bebida postCadastrar(Bebida bebida) {
         //recebe a bebida preenchida no formulário e grava no banco
@@ -48,10 +39,9 @@ public class BebidaController {
     }
 
     @GetMapping(value="/deletar/{id}")
-    public String getDeletar(@PathVariable Long id) {
+    public void getDeletar(@PathVariable Long id) {
         // deleta a bebida referente ao id
-        bebidaRepository.deleteById(id);
-        return "redirect:/";
+        bebidaRepository.deleteById(id);        
     }
 
     @GetMapping(value="/editar/{id}")
