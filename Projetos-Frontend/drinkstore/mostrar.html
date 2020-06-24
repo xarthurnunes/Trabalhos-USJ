@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <title>Drink Store</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body class="bg-dark text-white">
+    <div class="container" id="app">
+        <h1>Drink Store - Loja de Bebidas</h1>
+        <h2>{{bebida.nome}}</h2>
+        <h2>{{bebida.descricao}}</h2>
+        <h2>{{bebida.fabricante}}</h2>
+        <h2>{{bebida.teor}}</h2>
+        <h2>{{bebida.preco}}</h2>
+        <a href="/">Voltar</a>
+    </div>
+
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                bebida: { nome: '', descricao: '', fabricante: '', teor: '', preco: ''}
+            },
+            methods: {
+                lerItem: function() {
+                    var id = 2;
+                    fetch('http://localhost:8080/bebidas/' + id)
+                    .then( (resposta) => resposta.json() )
+                    .then( (bebida) => this.bebida = bebida);
+                }
+            },
+            created: function() {
+                this.lerItem();
+            }
+
+
+        });
+
+
+    </script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/jquery-3.5.1.slim.min.js"></script>
+</body>
+
+</html>
