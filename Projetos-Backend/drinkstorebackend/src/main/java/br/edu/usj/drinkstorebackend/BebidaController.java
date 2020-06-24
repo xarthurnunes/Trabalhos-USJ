@@ -5,15 +5,19 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 
 
 @Controller
 @ResponseBody
 @CrossOrigin
+@RequestMapping("/bebidas")
 public class BebidaController {
 
     @Autowired
@@ -41,18 +45,28 @@ public class BebidaController {
     }
 
     @GetMapping(value="/deletar/{id}")
-    public void getDeletar(@PathVariable Long id) {
+    public void getDeletarGet(@PathVariable Long id) {
         // deleta a bebida referente ao id
         bebidaRepository.deleteById(id);        
     }
 
-    @GetMapping(value="/editar/{id}")
-    public Bebida getEditar(@PathVariable Long id) {
-        // retornar o formulário de cadastro com a a bebida "id" preenchida no form
-        Bebida bebida = bebidaRepository.findById(id).get();
-        return bebida;
+    @DeleteMapping(value="/{id}")
+    public void getDeletar(@PathVariable Long id) {
+        // deleta a bebida referente ao id
+        bebidaRepository.deleteById(id);        
     }
     
+    @GetMapping(value="pesquisar/{nome}")
+    public List<Bebida> getPesquisarPorNome(@PathVariable String nome) {
+        List<Bebida> lista = bebidaRepository.findByNomeContainingIgnoreCaseOrderByPrecoDesc(nome);
+        return lista;
+    }
+    
+    @GetMapping(value="calcularPrecoMedioPorNome/{nome}")
+    public Double getPrecoMedioPorNome(@PathVariable String nome) {
+        Double precoMedio = bebidaRepository.calculaPrecoMedio(nome);
+        return precoMedio;
+    }
     
     
 }
