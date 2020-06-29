@@ -62,6 +62,9 @@
                     <input id="estado" name="estado" type="text" th:value="${cliente.estado}" placeholder="Ex: Santa Catarina" class="form-control">
                 </div>
             </div>
+
+            <input type="hidden" name="id" th:value="${cliente.id}" />
+
             <button type="submit" class="btn btn-primary col-sm-5">Cadastrar</button>
 
         </form>

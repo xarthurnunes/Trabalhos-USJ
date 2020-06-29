@@ -62,8 +62,7 @@ public class ClienteController {
     public ModelAndView getEditar(@PathVariable Long id) {
         Cliente cliente = clienteRepository.findById(id).get();
         ModelAndView modelAndView = new ModelAndView("cadastrarclientes");
-        Cliente clienteEditado = clienteRepository.save(cliente);
-        modelAndView.addObject("cliente", clienteEditado);
+        modelAndView.addObject("cliente", cliente);
         return modelAndView;
     }
     @GetMapping(value="/buscarclientes")
