@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <title>Sistema XYZ</title>
+</head>
+
+<body class="bg-dark text-white">
+    <div class="container">
+        <h1>Sistema XYZ</h1>
+        <h2 th:text="${ordemdeservico.nome}"></h2>
+        <h2 th:text="${ordemdeservico.email}"></h2>
+        <h2 th:text="${ordemdeservico.telefone}"></h2>
+        <h2 th:text="${ordemdeservico.descricao}"></h2>
+        <a href="/buscaros">Voltar</a>
+    </div>
+    <script src="/js/jquery-3.5.1.slim.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</body>
+
+</html>

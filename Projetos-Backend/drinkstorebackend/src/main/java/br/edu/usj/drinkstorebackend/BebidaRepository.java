@@ -11,7 +11,7 @@ public interface BebidaRepository extends CrudRepository<Bebida, Long> {
     List<Bebida> findByNomeContainingIgnoreCase(String nome);
     List<Bebida> findByNomeContainingIgnoreCaseOrderByPrecoDesc(String nome);
 
-    @Query(value = "select avg(preco) from public.bebida where upper(nome) like upper('_?1_')", nativeQuery = true)
+    @Query(value = "select avg(preco) from bebida where upper(nome) like upper('%?1%')", nativeQuery = true)
     Double calculaPrecoMedio(String nome);
     
 }

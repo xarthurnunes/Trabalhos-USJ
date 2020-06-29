@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <title>Sistema XYZ</title>
+</head>
+
+<body class="bg-dark text-white">
+    <div class="container">
+        <h1>Busca de Ordem de Serviço</h1>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="well well-sm">
+                    <form class="form-horizontal" action="" method="post">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="numeroos">Número da Ordem de Serviço</label>
+                            <div class="col-md-9">
+                                <input id="numeroos" name="numeroos" type="text" placeholder="Ex: 12"
+                                    class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12 text-right">
+                                    <button type="submit" class="btn btn-primary btn-lg">Buscar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div th:if="${lista.size() > 0}">
+            <div class="row m-1" th:each="ordemdeservico : ${listaos}">
+                <div class="col-3">
+                    <a th:href="@{/mostraros/{id}(id=${ordemdeservico.id})}" th:text="${ordemdeservico.nome}"></a>
+                </div>
+                <div class="col-3">
+                    <a class="btn btn-success btn-sm" th:href="@{/mostraros/{id}(id=${ordemdeservico.id})}">Detalhes</a>
+                </div>
+                <div class="col-3">
+                    <a class="btn btn-warning btn-sm" th:href="@{/editaros/{id}(id=${ordemdeservico.id})}">Editar</a>
+                </div>
+                <div class="col-3">
+                    <a class="btn btn-danger btn-sm" th:href="@{/deletaros/{id}(id=${ordemdeservico.id})}">Deletar</a>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+
+
+
+
+    <script src="/js/jquery-3.5.1.slim.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</body>
+
+</html>
