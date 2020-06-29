@@ -10,49 +10,46 @@
 
 <body class="bg-dark text-white">
     <div class="container">
-        <h1>Busca de Ordem de Serviço</h1>
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <div class="well well-sm">
-                    <form class="form-horizontal" action="" method="post">
-                        <div class="form-group">
-                            <label class="col-md-3 control-label" for="numeroos">Número da Ordem de Serviço</label>
-                            <div class="col-md-9">
-                                <input id="numeroos" name="numeroos" type="text" placeholder="Ex: 12"
-                                    class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12 text-right">
-                                    <button type="submit" class="btn btn-primary btn-lg">Buscar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+        <h1>Busca de Ordem de Servico</h1>
+        <form action="/buscaros" method="POST">
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="nome">Numero OS</label>
+                <div class="col-sm-5">
+                    <input id="numeroOs" name="numeroOs" type="text" placeholder="Ex: 1" class="form-control">
                 </div>
+                <button type="submit" class="btn btn-primary">Buscar</button>
             </div>
-        </div>
+            
+        </form>
+
+
 
 
 
         <div th:if="${lista.size() > 0}">
-            <div class="row m-1" th:each="ordemdeservico : ${listaos}">
-                <div class="col-3">
-                    <a th:href="@{/mostraros/{id}(id=${ordemdeservico.id})}" th:text="${ordemdeservico.nome}"></a>
+            <h2>Lista de Ordens de Serviço Cadastradas</h2>
+            <div class="row m-1" th:each="ordemservico : ${lista}">
+                <div class="col-6">
+                    <a th:href="@{/buscaros/{id}(id=${ordemservico.id})}" th:text="${'Id: ' + ordemservico.id + ' Nome do cliente: ' + ordemservico.nome}"></a>
+
                 </div>
-                <div class="col-3">
-                    <a class="btn btn-success btn-sm" th:href="@{/mostraros/{id}(id=${ordemdeservico.id})}">Detalhes</a>
+                <div class="col-2">
+                    <a class="btn btn-success btn-sm" th:href="@{/mostraros/{id}(id=${ordemservico.id})}">Detalhes</a>
                 </div>
-                <div class="col-3">
-                    <a class="btn btn-warning btn-sm" th:href="@{/editaros/{id}(id=${ordemdeservico.id})}">Editar</a>
+                <div class="col-2">
+                    <a class="btn btn-warning btn-sm" th:href="@{/editaros/{id}(id=${ordemservico.id})}">Editar</a>
                 </div>
-                <div class="col-3">
-                    <a class="btn btn-danger btn-sm" th:href="@{/deletaros/{id}(id=${ordemdeservico.id})}">Deletar</a>
+                <div class="col-2">
+                    <a class="btn btn-danger btn-sm" th:href="@{/deletaros/{id}(id=${ordemservico.id})}">Deletar</a>
                 </div>
             </div>
         </div>
 
-        
+        <a class="btn btn-primary" href="/cadastrarclientes">Cadastrar Clientes</a>
+        <a class="btn btn-primary" href="/cadastrarordemdeservico">Cadastrar OS</a>
     </div>
+
+
 
 
 

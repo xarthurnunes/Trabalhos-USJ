@@ -24,6 +24,7 @@ public class Cliente {
     String email;
     String telefone;
     String endereco;
+    String bairro;
     String cidade;
     String estado;
     

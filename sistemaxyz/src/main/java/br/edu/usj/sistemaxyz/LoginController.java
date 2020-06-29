@@ -9,12 +9,11 @@ public class LoginController {
 
     @PostMapping(value = "/login") 
         public String getLogin(@RequestParam String usuario, @RequestParam String senha) {
-            return "login";
-        //    if (usuario == "admin" && senha == "qwe123") {
-        //        return "login";
-        //    } else {
-        //        return "index";	
-        //    }
+            if (usuario.equals("admin") && senha.equals("qwe123")) {
+                return "login";
+            } else {
+                return "redirect:/";	
+            }
             
     }
     
