@@ -38,7 +38,7 @@
                 <label class="col-sm-2 col-form-label" for="descservico">Descriçao do Serviço</label>
                 <div class="col-md-9">
                     <textarea class="form-control" id="descservico" name="descservico"
-                        th:value="${ordemservico.descservico}" placeholder="Escreva aqui os serviços realizados"
+                        th:text="${ordemservico.descservico}" placeholder="Escreva aqui os serviços realizados"
                         rows="5"></textarea>
                 </div>
             </div>

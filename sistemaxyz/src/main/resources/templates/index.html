@@ -18,6 +18,10 @@
         <label for="senha" class="">Senha</label>
         <input type="password" id="senha" name="senha" class="form-control" placeholder="Digite sua Senha" required>
 
+        <div class="mx-auto d-block mb-4" th:if="${mensagem != null}">
+           <img width="200" src="https://dbriefing.com.br/blog/wp-content/uploads/2018/10/errou-faustao-gif.gif">
+        </div>
+        
         <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
         <a class="btn btn-lg btn-primary btn-block" href="/contato">Contato</a>
         <p class="mt-5 mb-3 text-muted text-center">&copy; 2020</p>
