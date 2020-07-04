@@ -17,7 +17,7 @@
         <h2>Fabricante: {{bebida.fabricante}}</h2>
         <h2>Teor: {{bebida.teor}}</h2>
         <h2>Preço R$: {{bebida.preco}}</h2>
-        <a href="/">Voltar</a>
+        <a class="btn btn-success" href="/">Voltar</a>
     </div>
 
 
@@ -29,7 +29,7 @@
             },
             methods: {
                 lerItem: function() {
-                    var id = 2;
+                    const id = new URL(location.href).searchParams.get('id');
                     fetch('http://localhost:8080/bebidas/' + id)
                     .then( (resposta) => resposta.json() )
                     .then( (bebida) => this.bebida = bebida);

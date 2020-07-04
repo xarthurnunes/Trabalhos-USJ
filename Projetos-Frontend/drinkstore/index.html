@@ -10,25 +10,66 @@
 </head>
 
 <body class="bg-dark text-white">
-    <div class="container">
+    <div id="app" class="container">
         <h1>Drink Store - Loja de Bebidas</h1>
 
-        <div th:if="${lista.size() > 0}">
-            <div class="row m-1" th:each="bebida : ${lista}">
-                <div class="col-6">
-                    <a th:href="@{/mostrar/{id}(id=${bebida.id})}" th:text="${bebida.nome}"></a>
+        <div class="list-group-item-dark" v-for="bebida in lista">
+            <div class="row m-1">
+                <div class="col-md-4">
+                    <a href="#" v-on:click="mostrarItem(bebida.id)">Nome: {{bebida.nome}}</a>
                 </div>
-                <div class="col-3">
-                    <a class="btn btn-success btn-sm" th:href="@{/editar/{id}(id=${bebida.id})}">Editar</a>
+                <div class="col-md-4">
+                    R$: {{bebida.preco}}
                 </div>
-                <div class="col-3">
-                    <a class="btn btn-danger btn-sm" th:href="@{/deletar/{id}(id=${bebida.id})}">Deletar</a>
+                <div class="col-md-2">
+                    <button class="btn btn-warning" v-on:click="editarItem(bebida.id)">Editar</button>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-danger" v-on:click="deletarItem(bebida.id)">Deletar</button>
                 </div>
             </div>
         </div>
 
+
         <a class="btn btn-primary" href="/cadastrar">Cadastre uma nova bebida</a>
     </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                lista: [  ]
+
+
+            },
+            methods: {
+                mostrarItem: function(id) {
+                    window.location.href = 'mostrar.html?id=' + id; 
+
+                },
+                editarItem: function(id) {
+                    window.location.href = 'cadastrar.html?id=' + id;
+
+                },
+                deletarItem: function(id) {
+                    fetch('http://localhost:8080/bebidas/deletar/' + id)
+                    .then( () => this.lerTodos() );
+                },
+                lerTodos: function() {
+                    fetch('http://localhost:8080/bebidas/')
+                    .then( (resposta) => resposta.json() )
+                    .then( (lista) => {
+                        this.lista = lista;
+                    });
+                }
+            },
+            created: function() {
+                this.lerTodos();
+            }
+
+
+        });
+    </script>
 
 
 
